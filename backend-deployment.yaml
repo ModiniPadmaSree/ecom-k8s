@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: modinipadmasree/ecom-backend:latest
+        image: modinipadmasree/ecom-backend:3
         ports:
         - containerPort: 5000
         envFrom:
