@@ -4,16 +4,17 @@ metadata:
   name: ecom-ingress
   namespace: ecom
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
 spec:
   rules:
-  - host: ecom.example.com   # replace with your domain or cluster IP
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: ecom-frontend-svc
-            port:
-              number: 80
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ecom-frontend-svc
+                port:
+                  number: 80
