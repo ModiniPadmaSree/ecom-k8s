@@ -28,10 +28,10 @@ metadata:
   name: ecom-frontend-svc
   namespace: ecom
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: ecom-frontend
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 3000
+    targetPort: 80
