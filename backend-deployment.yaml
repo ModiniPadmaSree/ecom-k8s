@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecom-backend
+  namespace: ecom
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecom-backend
+  template:
+    metadata:
+      labels:
+        app: ecom-backend
+    spec:
+      containers:
+      - name: backend
+        image: modinipadmasree/ecom-backend:latest
+        ports:
+        - containerPort: 5000
+        envFrom:
+        - configMapRef:
+            name: ecom-backend-config
+        - secretRef:
+            name: ecom-backend-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecom-backend-svc
+  namespace: ecom
+spec:
+  type: ClusterIP
+  selector:
+    app: ecom-backend
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
