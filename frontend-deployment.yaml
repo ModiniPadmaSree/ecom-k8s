@@ -28,7 +28,7 @@ metadata:
   name: ecom-frontend-svc
   namespace: ecom
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: ecom-frontend
   ports:
