@@ -1,0 +1,54 @@
+{
+    "apiVersion": "v1",
+    "kind": "Namespace",
+    "metadata": {
+        "creationTimestamp": "2026-02-28T04:12:56Z",
+        "deletionTimestamp": "2026-02-28T04:16:14Z",
+        "labels": {
+            "kubernetes.io/metadata.name": "ecom"
+        },
+        "name": "ecom",
+        "resourceVersion": "243279",
+        "uid": "5f519a72-22c9-4b8e-8dca-d412fde47ab2"
+    },
+    "status": {
+        "conditions": [
+            {
+                "lastTransitionTime": "2026-02-28T04:16:19Z",
+                "message": "All resources successfully discovered",
+                "reason": "ResourcesDiscovered",
+                "status": "False",
+                "type": "NamespaceDeletionDiscoveryFailure"
+            },
+            {
+                "lastTransitionTime": "2026-02-28T04:16:19Z",
+                "message": "All legacy kube types successfully parsed",
+                "reason": "ParsedGroupVersions",
+                "status": "False",
+                "type": "NamespaceDeletionGroupVersionParsingFailure"
+            },
+            {
+                "lastTransitionTime": "2026-02-28T04:16:19Z",
+                "message": "All content successfully deleted, may be waiting on finalization",
+                "reason": "ContentDeleted",
+                "status": "False",
+                "type": "NamespaceDeletionContentFailure"
+            },
+            {
+                "lastTransitionTime": "2026-02-28T04:16:25Z",
+                "message": "Some resources are remaining: ingresses.networking.k8s.io has 1 resource instances, services. has 1 resource instances",
+                "reason": "SomeResourcesRemain",
+                "status": "True",
+                "type": "NamespaceContentRemaining"
+            },
+            {
+                "lastTransitionTime": "2026-02-28T04:16:25Z",
+                "message": "Some content in the namespace has finalizers remaining: ingress.k8s.aws/resources in 1 resource instances, service.k8s.aws/resources in 1 resource instances",
+                "reason": "SomeFinalizersRemain",
+                "status": "True",
+                "type": "NamespaceFinalizersRemaining"
+            }
+        ],
+        "phase": "Terminating"
+    }
+}

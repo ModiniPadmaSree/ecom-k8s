@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ecom-backend
-  namespace: ecom
+  namespace: ecom1
 spec:
   replicas: 2
   selector:
@@ -28,9 +28,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ecom-backend-svc
-  namespace: ecom
+  namespace: ecom1
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: ecom-backend
   ports:
