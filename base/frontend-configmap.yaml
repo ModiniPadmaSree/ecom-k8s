@@ -1,12 +1,7 @@
 apiVersion: v1
-kind: Service
+kind: ConfigMap
 metadata:
-  name: backend-service
-  namespace: e-com
-spec:
-  type: ClusterIP
-  selector:
-    app: backend
-  ports:
-    - port: 5000
-      targetPort: 5000
+  name: ecom-frontend-config
+  namespace: ecom
+data:
+  REACT_APP_API_URL: "http://backend-service:5000"
