@@ -6,9 +6,8 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    kubernetes.io/ingress.class: alb
 spec:
-  ingressClassName: alb   # 👈 REQUIRED for proper controller binding
+  ingressClassName: alb
   rules:
     - http:
         paths:
