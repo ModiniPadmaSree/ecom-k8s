@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: e-com
+  namespace: {{ .Values.namespace }}
 spec:
-  replicas: 2
+  replicas: {{ .Values.backend.replicas }}
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -20,33 +20,32 @@ spec:
     spec:
       containers:
         - name: backend
-          image: modinipadmasree/ecom-backend:3
+          image: {{ .Values.backend.image }}
           imagePullPolicy: Always
           ports:
-            - containerPort: 5000
+            - containerPort: {{ .Values.backend.port }}
           resources:
             requests:
-              cpu: "200m"
-              memory: "256Mi"
+              cpu: {{ .Values.backend.resources.requests.cpu }}
+              memory: {{ .Values.backend.resources.requests.memory }}
             limits:
-              cpu: "500m"
-              memory: "512Mi"
+              cpu: {{ .Values.backend.resources.limits.cpu }}
+              memory: {{ .Values.backend.resources.limits.memory }}
           envFrom:
             - configMapRef:
                 name: backend-config
             - secretRef:
                 name: backend-secret
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
   name: backend-service
-  namespace: e-com
+  namespace: {{ .Values.namespace }}
 spec:
   type: ClusterIP
   selector:
     app: backend
   ports:
-    - port: 5000
-      targetPort: 5000
+    - port: {{ .Values.backend.port }}
+      targetPort: {{ .Values.backend.port }}

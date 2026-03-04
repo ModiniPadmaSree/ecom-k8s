@@ -1,0 +1,45 @@
+# ecom-chart/values.yaml
+namespace: e-com
+
+backend:
+  image: modinipadmasree/ecom-backend:3
+  replicas: 2
+  port: 5000
+  resources:
+    requests:
+      cpu: "200m"
+      memory: "256Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+  config:
+    PORT: "5000"
+    JWT_EXPIRE: "30d"
+    COOKIE_EXPIRE: "30"
+    SMTP_HOST: "smtp.gmail.com"
+    SMTP_PORT: "465"
+    SMTP_SERVICE: "gmail"
+    FRONTEND_URL: "http://k8s-ecom-ecomingr-56c89b259d-1337609387.us-east-1.elb.amazonaws.com"
+
+frontend:
+  image: modinipadmasree/ecom-frontend:3
+  replicas: 2
+  port: 80
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "128Mi"
+    limits:
+      cpu: "300m"
+      memory: "256Mi"
+
+hpa:
+  minReplicas: 2
+  maxReplicas: 5
+  cpuUtilization: 70
+
+ingress:
+  className: alb
+  annotations:
+    scheme: internet-facing
+    targetType: ip
