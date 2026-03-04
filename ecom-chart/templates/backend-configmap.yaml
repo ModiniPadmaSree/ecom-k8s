@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: {{ .Values.namespace }}
+data:
+  PORT: {{ .Values.backend.config.PORT | quote }}
+  JWT_EXPIRE: {{ .Values.backend.config.JWT_EXPIRE | quote }}
+  COOKIE_EXPIRE: {{ .Values.backend.config.COOKIE_EXPIRE | quote }}
+  SMTP_HOST: {{ .Values.backend.config.SMTP_HOST | quote }}
+  SMTP_PORT: {{ .Values.backend.config.SMTP_PORT | quote }}
+  SMTP_SERVICE: {{ .Values.backend.config.SMTP_SERVICE | quote }}
+  FRONTEND_URL: {{ .Values.backend.config.FRONTEND_URL | quote }}
