@@ -19,7 +19,7 @@ backend:
     SMTP_HOST: "smtp.gmail.com"
     SMTP_PORT: "465"
     SMTP_SERVICE: "gmail"
-    FRONTEND_URL: "http://k8s-ecom-ecomingr-56c89b259d-1337609387.us-east-1.elb.amazonaws.com"
+    FRONTEND_URL: "http://k8s-ecom-ecomingr-56c89b259d-1063378090.us-east-1.elb.amazonaws.com"
 
 frontend:
   image: modinipadmasree/ecom-frontend:3
