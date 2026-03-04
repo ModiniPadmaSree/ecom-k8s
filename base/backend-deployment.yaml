@@ -18,6 +18,7 @@ spec:
       containers:
         - name: backend
           image: modinipadmasree/ecom-backend:3
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
           resources:
