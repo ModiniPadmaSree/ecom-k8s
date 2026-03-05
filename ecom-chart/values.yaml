@@ -1,8 +1,7 @@
 # ecom-chart/values.yaml
 namespace: e-com
-
 backend:
-  image: modinipadmasree/ecom-backend:3
+  image: modinipadmasree/ecom-backend:13
   replicas: 2
   port: 5000
   resources:
@@ -20,9 +19,8 @@ backend:
     SMTP_PORT: "465"
     SMTP_SERVICE: "gmail"
     FRONTEND_URL: "http://k8s-ecom-ecomingr-56c89b259d-1063378090.us-east-1.elb.amazonaws.com"
-
 frontend:
-  image: modinipadmasree/ecom-frontend:3
+  image: modinipadmasree/ecom-frontend:13
   replicas: 2
   port: 80
   resources:
@@ -32,12 +30,10 @@ frontend:
     limits:
       cpu: "300m"
       memory: "256Mi"
-
 hpa:
   minReplicas: 2
   maxReplicas: 5
   cpuUtilization: 70
-
 ingress:
   className: alb
   annotations:
