@@ -1,7 +1,7 @@
 # ecom-chart/values.yaml
 namespace: e-com
 backend:
-  image: modinipadmasree/ecom-backend:13
+  image: modinipadmasree/ecom-backend:14
   replicas: 2
   port: 5000
   resources:
@@ -20,7 +20,7 @@ backend:
     SMTP_SERVICE: "gmail"
     FRONTEND_URL: "http://k8s-ecom-ecomingr-aba520b7b7-1780017333.us-east-1.elb.amazonaws.com"
 frontend:
-  image: modinipadmasree/ecom-frontend:13
+  image: modinipadmasree/ecom-frontend:14
   replicas: 2
   port: 80
   resources:
