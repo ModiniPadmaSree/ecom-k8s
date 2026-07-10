@@ -361,6 +361,8 @@ Kubernetes Deployment
     ↓
 Monitoring & Logging
 ```
+## Demo video of automated platform
+https://github.com/user-attachments/assets/70ebef9a-8df1-454d-89b9-b3f57a2145ef
 
 ---
 # Repositories
