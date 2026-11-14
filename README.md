@@ -1,5 +1,4 @@
-# End-to-End DevOps Automation for E-Commerce Application
-
+# End-to-End DevOps Automation for E-Commerce Application (with ecom-infra and ecom)
 This project demonstrates a complete DevOps implementation for a containerized E-Commerce application using CI/CD, GitOps, Infrastructure as Code, Monitoring, Logging, and Kubernetes.
 
 The setup automates:
